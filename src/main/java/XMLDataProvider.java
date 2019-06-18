@@ -1,5 +1,3 @@
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -9,52 +7,69 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.String.valueOf;
 
 public class XMLDataProvider {
 
-@DataProvider(name = "xmlDataProvider")
-public Object[][] dataProvider() {
-    Object[][] objects = new Object[0][0];
-    return objects;
-}
+    private Document document;
 
+    public XMLDataProvider(String xmlFile) {
 
-public void readXML(String name) {
+        try {
+            ClassLoader loader = XMLDataProvider.class.getClassLoader();
+            File file = new File(loader.getResource(xmlFile).getFile());
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            document = documentBuilder.parse(file);
+            document.getDocumentElement().normalize();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
 
-    try {
-        File file = new File("K:\\!Programowanie\\XMLDataProvider\\src\\main\\resources\\TestContext.xml");
-        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-        Document document = documentBuilder.parse(file);
+    public String getValue(String name) {
 
-        document.getDocumentElement().normalize();
         NodeList nodes = document.getElementsByTagName("parameter");
+        String value = null;
+
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             Element element = (Element) node;
             if(valueOf(element.getAttribute("name")).equals(name)) {
-                System.out.println(element.getAttribute("value"));
+               value = element.getAttribute("value");
             }
-
         }
-
-
-    } catch (Exception e) {
-        e.printStackTrace();
+        return value;
     }
 
-}
+    public List<String> getValues(String name) {
+
+        NodeList nodes = document.getElementsByTagName("parameter");
+        List<String> values = new ArrayList<String>();
+
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Node node = nodes.item(i);
+            Element element = (Element) node;
+            if(valueOf(element.getAttribute("name")).equals(name)) {
+                values.add(element.getAttribute("value"));
+            }
+        }
+        return values;
+    }
 
     public static void main(String[] args) {
-        XMLDataProvider xml = new XMLDataProvider();
-        xml.readXML("testName");
+        XMLDataProvider xml = new XMLDataProvider("TestContext.xml");
+        System.out.println(xml.getValue("testName"));
+        System.out.println(xml.getValues("testName2"));
     }
 
 @Test(dataProvider = "xmlDataProvider")
 public void testDataProvider() {
-    Assert.assertSame(new Object[0][0], dataProvider());
+
 }
 
 }

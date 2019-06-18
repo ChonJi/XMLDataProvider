@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test name = "IWantThisDataBitch">
-    <parameter name = "testName" value = "This is a value"/>
-    <parameter name = "testName2" value = "This is a value no. 2"/>
-</test>
+<tests>
+    <test class="testDataProvider">
+        <parameter name="testName" value="This is a value"/>
+        <parameter name="testName2" value="This is a value no. 2"/>
+        <parameter name="testName2" value="This is a value no. 3"/>
+    </test>
+    <test class="dupaTest">
+        <parameter name="testName" value="dupaValue1"/>
+        <parameter name="testName2" value="dupaValue2"/>
+        <parameter name="testName2" value="dupaValue3"/>
+    </test>
+</tests>

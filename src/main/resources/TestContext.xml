@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test name = "IWantThisDataBitch">
+    <parameter name = "testName" value = "This is a value"/>
+    <parameter name = "testName2" value = "This is a value no. 2"/>
+</test>

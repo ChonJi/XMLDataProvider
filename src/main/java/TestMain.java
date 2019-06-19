@@ -11,7 +11,7 @@ public class TestMain {
             JAXBContext context = JAXBContext.newInstance(Tests.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             Tests tests = (Tests) unmarshaller.unmarshal(file);
-            System.out.println(tests.getTests());
+            System.out.println(tests.getTests().get(0));
 
 
         } catch (JAXBException e) {

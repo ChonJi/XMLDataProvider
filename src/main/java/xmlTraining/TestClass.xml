@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
-<testclass>
+<TestClass>
     <param id="my">Something in the rain</param>
-</testclass>
+</TestClass>

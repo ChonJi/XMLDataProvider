@@ -16,7 +16,7 @@ public class XMLReader {
 
 //    public static void main(String[] args) throws IOException {
 //
-//        File file = new File("K:\\!Programowanie\\XMLDataProvider\\src\\main\\java\\xmlTraining\\test_class.xml");
+//        File file = new File("K:\\!Programowanie\\XMLDataProvider\\src\\main\\java\\xmlTraining\\TestClass.xml");
 //        XmlMapper xmlMapper = new XmlMapper();
 //        String xml = inputStreamToString(new FileInputStream(file));
 //        TestClass config = xmlMapper.readValue(xml, TestClass.class);
@@ -27,7 +27,7 @@ public class XMLReader {
     public static void main(String[] args) throws IOException {
 
         ObjectMapper objectMapper = new XmlMapper();
-        TestClass tc = objectMapper.readValue(StringUtils.toEncodedString(Files.readAllBytes(Paths.get("K:\\!Programowanie\\XMLDataProvider\\src\\main\\java\\xmlTraining\\test_class.xml")), StandardCharsets.UTF_8),
+        TestClass tc = objectMapper.readValue(StringUtils.toEncodedString(Files.readAllBytes(Paths.get("K:\\!Programowanie\\XMLDataProvider\\src\\main\\java\\xmlTraining\\TestClass.xml")), StandardCharsets.UTF_8),
                 TestClass.class);
         System.out.println(tc);
         System.out.println(tc.getId() + tc.getParam());

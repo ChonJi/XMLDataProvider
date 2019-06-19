@@ -3,7 +3,7 @@ package xmlTraining;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@JacksonXmlRootElement(localName = "testclass")
+@JacksonXmlRootElement(localName = "TestClass")
 public class TestClass {
 
     @JacksonXmlProperty(localName = "param")

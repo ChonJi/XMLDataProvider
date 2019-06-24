@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<TestClass>
+    <TestName id="mama">
+        <userId>Something in the rain</userId>
+        <userId>Deszcz padł na gówno</userId>
+        <password>Shit</password>
+        <inputString>Jak ja nie lubię poniedziałku</inputString>
+    </TestName>
+    <TestName id="tata">
+        <noManShallPass>No one shall pass bitches!!!</noManShallPass>
+    </TestName>
+</TestClass>

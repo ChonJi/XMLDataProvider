@@ -27,7 +27,7 @@ public class XMLReader {
     public static void main(String[] args) throws IOException {
 
         ObjectMapper objectMapper = new XmlMapper();
-        TestClass tc = objectMapper.readValue(StringUtils.toEncodedString(Files.readAllBytes(Paths.get("K:\\!Programowanie\\XMLDataProvider\\src\\main\\java\\xmlTraining\\TestClass.xml")), StandardCharsets.UTF_8),
+        TestClass tc = objectMapper.readValue(StringUtils.toEncodedString(Files.readAllBytes(Paths.get("TestClass.xml")), StandardCharsets.UTF_8),
                 TestClass.class);
         System.out.println(tc);
         System.out.println(tc.getId() + tc.getParam());
